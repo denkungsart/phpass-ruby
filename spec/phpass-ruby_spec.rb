@@ -9,10 +9,10 @@ describe "PhpassRuby" do
 
   it 'should correct' do
     hash = @ps.hash(@correct)
-    @ps.check(@correct, hash).should be_true
+    @ps.check(@correct, hash).should be(true)
     known = '$P$9IQRaTwmfeRo7ud9Fh4E2PdI0S3r.L0'
-    @ps.check(@correct, known).should be_true
-    @ps.check(@wrong, known).should be_false
+    @ps.check(@correct, known).should be(true)
+    @ps.check(@wrong, known).should be(false)
   end
 end
 
