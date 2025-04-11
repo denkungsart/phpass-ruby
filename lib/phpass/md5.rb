@@ -1,6 +1,4 @@
-# -- coding: utf-8
-
-require "rubygems"
+# frozen_string_literal: true
 
 class Phpass
   class Md5
@@ -24,7 +22,7 @@ class Phpass
     private
 
     def gensalt(input)
-      out = '$P$'
+      out = +'$P$'
       out << @itoa64[[@stretch + 5, 30].min]
       out << encode64(input, 6)
       out
@@ -47,7 +45,7 @@ class Phpass
     end
 
     def encode64(input, count)
-      out = ''
+      out = +''
       cur = 0
       while cur < count
         value = input[cur].ord

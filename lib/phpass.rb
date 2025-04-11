@@ -1,4 +1,4 @@
-# -- coding: utf-8
+# frozen_string_literal: true
 
 require "digest/md5"
 require "openssl"
@@ -28,7 +28,7 @@ class Phpass
 
     if(out.length < length)
       random_state = '%s%s' % [Time.now.to_f, $$]
-      out = ''
+      out = +''
       while out.length < length
         rnd = Digest::MD5.hexdigest(Time.now.to_f.to_s + random_state)
         out << Digest::MD5.digest(rnd)
